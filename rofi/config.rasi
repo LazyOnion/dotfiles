@@ -1,0 +1,5 @@
+configuration {
+    show-icons: true;
+    drun-icon-theme: "Adwaita";
+}
+@theme "rounded-nord-dark"

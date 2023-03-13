@@ -1,0 +1,1 @@
+/home/onion/.fzf/shell/key-bindings.fish

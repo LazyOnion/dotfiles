@@ -1,0 +1,61 @@
+# 默认窗口无标题栏，16:9的窗口比例启动
+window:
+  decorations: "none"
+  dimensions:
+    columns: 120
+    lines: 30
+
+  # 透明度
+  opacity: 1.0
+# 实时重载配置文件，不用重启测试配置选项
+live_config_reload: true
+
+# 主题
+colors:
+  name: Ashes (dark)
+  author: Chris Kempson
+  primary:
+    background: "#1c2023"
+    foreground: "#c7ccd1"
+  cursor:
+    text: "#1c2023"
+    cursor: "#c7ccd1"
+  normal:
+    black: "#1c2023"
+    red: "#c7ae95"
+    green: "#95c7ae"
+    yellow: "#aec795"
+    blue: "#ae95c7"
+    magenta: "#c795ae"
+    cyan: "#95aec7"
+    white: "#c7ccd1"
+  bright:
+    black: "#747c84"
+    red: "#c7ae95"
+    green: "#95c7ae"
+    yellow: "#aec795"
+    blue: "#ae95c7"
+    magenta: "#c795ae"
+    cyan: "#95aec7"
+    white: "#f3f4f5"
+
+# 字体设置为等宽字体，可以用命令 fc-list 查看你系统的字体
+font:
+  size: 10
+
+  normal:
+    family: Fira Code Nerd Font
+
+  bold:
+    family: Fira Code Nerd Font
+
+  italic:
+    family: Fira Code Nerd Font
+
+  offset:
+    x: 1
+    y: 0
+
+cursor:
+  style: underline
+theme: Ashes.dark

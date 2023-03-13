@@ -1,0 +1,212 @@
+set $mod Mod1
+
+new_window pixel 0
+new_float normal
+for_window [all] border pixel 4
+hide_edge_borders none
+
+for_window [class="QQ"] floating enable focus resize set 600 500, move left 400px, move down 700px
+for_window [class="Wine"] floating enable focus resize set 600 500, move left 400px, move down 70px
+
+assign [class="QQ"] 2
+assign [class="Wine"] 2
+
+bindsym $mod+u border none
+bindsym $mod+y border pixel 1
+bindsym $mod+n border normal
+
+# class                 border  backgr. text    indicator child_border
+# client.focused          #d0ff73 #285577 #ffffff #d0ff73   #d0ff73
+# client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+# client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+# client.urgent           #2f343a #900000 #ffffff #900000   #900000
+# client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+#
+# client.background       #ffffff
+#
+font xft:URWGothic-Book 11
+
+floating_modifier $mod
+
+# bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
+
+# Window kill command
+bindsym $mod+Shift+q kill
+
+# start program launcher
+# bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec --no-startup-id rofi -show drun
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+# bindsym $mod+semicolon focus right
+bindsym $mod+l focus right
+
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+# bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+l move right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# workspace back and forth (with/without active container)
+workspace_auto_back_and_forth yes
+bindsym $mod+b workspace back_and_forth
+bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
+
+# split orientation
+bindsym $mod+q split toggle
+
+# toggle fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# toggle sticky
+bindsym $mod+Shift+s sticky toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# move the currently focused window to the scratchpad
+bindsym $mod+Shift+Tab move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+Tab scratchpad show
+
+# navigate workspaces next / previous
+bindsym $mod+Ctrl+Right workspace next
+bindsym $mod+Ctrl+Left workspace prev
+
+# workspaces
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+
+# Move focused container to workspace
+bindsym $mod+Ctrl+1 move container to workspace $ws1
+bindsym $mod+Ctrl+2 move container to workspace $ws2
+bindsym $mod+Ctrl+3 move container to workspace $ws3
+bindsym $mod+Ctrl+4 move container to workspace $ws4
+bindsym $mod+Ctrl+5 move container to workspace $ws5
+bindsym $mod+Ctrl+6 move container to workspace $ws6
+bindsym $mod+Ctrl+7 move container to workspace $ws7
+bindsym $mod+Ctrl+8 move container to workspace $ws8
+
+# Move to workspace with focused container
+bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
+
+# Open specific applications in floating mode
+# for_window [title="alsamixer"] floating enable border pixel 1
+
+# switch to workspace with urgent window automatically
+for_window [urgent=latest] focus
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Resize window (you can also use the mouse for that)
+bindsym $mod+r mode "resize"
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        bindsym l resize shrink width 8 px or 8 ppt
+        bindsym j resize grow height 8 px or 8 ppt
+        bindsym k resize shrink height 8 px or 8 ppt
+        bindsym h resize grow width 8 px or 8 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Right resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Left resize grow width 5 px or 5 ppt
+
+        # exit resize mode: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+# Autostart applications
+exec --no-startup-id nm-applet
+exec --no-startup-id clipit
+exec --no-startup-id flameshot
+exec --no-startup-id fcitx
+exec --no-startup-id wechat
+exec --no-startup-id linuxqq
+exec_always --no-startup-id killall picom; sleep 0.2; picom --experimental-backends --config /home/onion/.config/picom/picom.conf
+exec_always --no-startup-id feh --randomize --bg-fill /home/onion/.config/i3/Wallpapers/*
+exec_always --no-startup-id $HOME/.config/polybar/runbar.sh
+exec_always --no-startup-id python /home/onion/.config/i3/alternating_layout.py
+
+# Theme colors
+# client.focused #c5c8c6 #1d1f21 #c5c8c6 #81a2be #81a2be
+client.focused #d0ff73 #285577 #ffffff #d0ff73 #d0ff73
+client.focused_inactive #c5c8c6 #1d1f21 #c5c8c6 #5f819d #5f819d
+client.unfocused #c5c8c6 #1d1f21 #c5c8c6 #5f819d #5f819d
+client.urgent #c5c8c6 #1d1f21 #c5c8c6 #5f819d #5f819d
+client.placeholder #c5c8c6 #1d1f21 #c5c8c6 #5f819d #5f819d
+client.background #1d1f21
+
+# Applications keybindings
+bindsym --release $mod+i exec --no-startup-id flameshot gui
+bindsym $mod+c exec firefox
+# bindsym $mod+c exec google-chrome-stable
+bindsym $mod+m exec marktext
+
+# Gap Setting
+gaps inner 3
+gaps outer 1
+# smart_gaps on
+
+floating_maximum_size 1400 x 850
+
