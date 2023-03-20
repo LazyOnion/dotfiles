@@ -4,6 +4,10 @@
 export CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 source /usr/share/zinit/zinit.zsh
 
+# to store the command history in local
+HISTSIZE=1000
+SAVEHIST=50000
+HISTFILE=${XDG_STATE_HOME:-$HOME/.local/state}/.zsh_history
 # setopt AUTO_PUSHD
 zi light z-shell/H-S-MW
 
