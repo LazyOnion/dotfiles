@@ -25,6 +25,7 @@ zi light agkozak/zsh-z
 PURE_PROMPT_SYMBOL="😊 💩 🎶 |"
 
 alias "ra"=ranger
+alias "byebye"=poweroff
 
 export CLICOLOR=1
 export LSCOLORS=ExGxFxdaCxDaDahbadeche
